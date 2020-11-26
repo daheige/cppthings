@@ -14,3 +14,14 @@
     做了一年半左右的 golang 开发，切身体会到这些东西任然很重，特别是mysql/redis/nginx源码大部分都是基于c/c++，
     基于对c/c++的好奇，以及为搞懂底层设计原理，决定重新学习c++，增强自己对于操作系统，内存分配，数据结构的理解。
 
+# c++编译时别名
+
+    vim ~/.bash_profile 或 vim ~/.bashrc
+    alias gc11="gcc -lstdc++ -std=c++11"
+    alias gc17="gcc -lstdc++ -std=c++17"
+    alias g11="g++ -std=c++11"
+    alias g17="g++ -std=c++17"
+
+    source ~/.bash_profile
+
+    编译的时候： g11 -o vector.out vector.cpp
