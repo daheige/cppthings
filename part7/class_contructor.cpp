@@ -89,5 +89,10 @@ int main()
     cout << "balance: " << c.get_balance() << endl;
     c.output();
 
+    //动态变量
+    BankAccout *a;
+    a = new BankAccout(2, 3, 0.2); // 这里采用new初始化类的对象
+    a->output();
+
     return 0;
 }
