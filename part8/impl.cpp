@@ -20,6 +20,7 @@ class Stu : public Person
 public:
     Stu();
     friend bool equal(Stu s1, Stu s2); // 友元函数前面加一个friend进行修饰
+    // 能像类的成员函数访问私有的变量
     int get_age();
     void set_number(const int &num);
     void output(); // 重写方法output
