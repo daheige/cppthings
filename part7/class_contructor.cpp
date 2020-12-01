@@ -10,7 +10,7 @@ public:
     void set(int d, int c, double rate);
     void set(int d, double rate); // 类中的方法重载
     void update();
-    double get_balance();
+    double get_balance() const;
     double get_rate();
     void output();
 
@@ -57,7 +57,8 @@ void BankAccout::update()
     balance = 123;
 }
 
-double BankAccout::get_balance()
+// const 修饰balance不能改变值
+double BankAccout::get_balance() const
 {
     return balance;
 }
