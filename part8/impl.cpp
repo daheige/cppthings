@@ -19,6 +19,7 @@ class Stu : public Person
 {
 public:
     Stu();
+    friend bool equal(Stu s1, Stu s2); // 友元函数前面加一个friend进行修饰
     int get_age();
     void set_number(const int &num);
     void output(); // 重写方法output
@@ -42,6 +43,15 @@ int main()
     s.set_name("dahei"); // 这里其实调用的父类的方法set_name
     s.set_number(123);
     s.output();
+
+    Stu s1, s2;
+    s1.set_name("heige");
+    s2.set_name("heige");
+    cout << "s1 age is: " << s1.get_age()
+         << "s2 age is: " << s2.get_age() << endl;
+    bool b = equal(s1, s2);
+
+    cout << "b is: " << b << endl;
 }
 
 // 初始化，构造函数
@@ -77,6 +87,7 @@ void Stu::set_number(const int &n)
 Stu::Stu()
 {
     number = 1;
+    age = 12;
 }
 
 int Stu::get_age()
@@ -88,4 +99,9 @@ void Stu::output()
 {
     Person::output();
     cout << "current number: " << number << endl;
+}
+
+bool equal(Stu s1, Stu s2)
+{
+    return s1.name == s2.name && s1.age == s2.age;
 }
