@@ -1,4 +1,2 @@
-using namespace std;
-
 // 函数声明
-void say_hello(string name);
+void say_hello(std::string name);
