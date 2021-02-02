@@ -18,6 +18,14 @@ enum class PieceType : unsigned long
     Pawn,
 };
 
+struct Person
+{
+    int age;
+    string name;
+    int employeeNumber;
+    int salary;
+};
+
 int main()
 {
     int a = 8;
@@ -31,5 +39,16 @@ int main()
     {
         cout << "piece is valid" << endl;
     }
+
+    Person p;
+    p.name = "daheige";
+    p.age = 30;
+    p.employeeNumber = 1;
+    p.salary = 10000;
+
+    cout << "person name is: " << p.name
+         << "age is: " << p.age
+         << endl;
+
     return 0;
 }
