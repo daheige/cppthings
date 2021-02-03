@@ -50,6 +50,19 @@ int main()
     // 释放分配的内存
     delete[] myarr;
     myarr = nullptr;
+
+    // 智能指针
+    // unique_ptr 类似于普通指针，但在unique_ptr超出作用域或被删除时候，会自动释放内存或资源 始终都会自动释放
+    // shared_ptr 只属于它指向的对象 make_shared<T>() 是一个模版
+    // 允许数据分布式的所有权，通过引用计数来释放指针引用的对象
+    auto anEmp2 = make_unique<Emp>(); // 是一个通用的智能指针，可以指向任意类型的内存，是一个模版
+    if (anEmp2)
+    {
+        anEmp2->name = "daheige";
+        cout << "hello" << endl;
+        cout << "name is " << anEmp2->name << endl;
+    }
+
     return 0;
 }
 
