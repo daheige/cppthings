@@ -1,7 +1,11 @@
 #include <iostream>
 #include <string>
+#include <array>
+#include <vector>
 
 using namespace std;
+void addOne(int &i);
+
 int main()
 {
 	int a = 12;
@@ -62,5 +66,28 @@ int main()
 	str = "daheige";
 	cout << "str is " << str << endl;
 
+	array<int,3> arr = {1,2,3};
+	for(int i = 0;i< arr.size();i++){
+	    cout << "current item is "<< arr[i]<< endl;
+	}
+
+	vector<int> myvec ={1,2,3,4};
+	myvec.push_back(5);
+    for(int i = 0;i< myvec.size();i++){
+        cout << "current item is "<< myvec[i]<< endl;
+    }
+
+    int i = 1;
+    addOne(i);
+    cout << "i = "<< i << endl;
+
+    auto m1{1}; // 统一初始化变量
+    cout << "m1 = "<< m1 << endl;
+
 	return 0;
 }
+
+void addOne(int &i){
+    i++;
+}
+
