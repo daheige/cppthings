@@ -6,6 +6,7 @@ using namespace std;
 
 int main()
 {
+    // cmath函数使用
     cout << "3 * 3 = " << pow(3, 2) << endl;
     cout << "abs(-3) = " << abs(-3) << endl; // cstdlib
     cout << "ceil(9.08) = " << ceil(9.08) << endl;
@@ -18,6 +19,7 @@ int main()
     cout << "floor(8.91) = " << floor(8.91) << endl;
 
     // 将int类型的值强制转化为double类型,将9强制转化为9.0
+    // 类型转化一般是使用static_cast<type>xx 格式
     double answer = static_cast<double>(9) / 2; // 9/2 = 4.5
     cout << "9/2 = " << answer << endl;
 

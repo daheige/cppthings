@@ -44,6 +44,7 @@ int main()
 }
 
 // 初始化列表，参数可变，个数不确定
+// initializer_list 定义可变参数
 int makeSum(initializer_list<int> lst)
 {
     int total = 0;

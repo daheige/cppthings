@@ -3,17 +3,18 @@
 
 using namespace std;
 
-class Person {
+class Person
+{
 public:
-    Person ();
+    Person();
 
     // void表示无结果返回
-    void set_name (string name);
+    void set_name(string name);
 
     // 返回字符串类型，用const修饰
-    string get_name () const;
+    string get_name() const;
 
-    void output ();
+    void output();
 
 private:
     string name;
@@ -21,30 +22,32 @@ private:
 };
 
 // 类的继承
-class Stu : public Person {
+class Stu : public Person
+{
 public:
-    Stu ();
+    Stu();
 
     // 友元函数前面加一个friend进行修饰
     // 能像类的成员函数访问私有的变量
-    friend bool equal (Stu s1, Stu s2);
+    friend bool equal(Stu s1, Stu s2);
 
     // 拓展类的方法
-    int get_age ();
+    int get_age();
 
-    void set_number (const int &num);
+    void set_number(const int &num);
 
     // 重写方法output
-    void output ();
+    void output();
 
-// 私有成员或方法定义
+    // 私有成员或方法定义
 private:
     int number; // 新增了一个成员number
     int age;
     string name;
 };
 
-int main () {
+int main()
+{
     Person p;
     cout << p.get_name() << endl;
     p.set_name("heige313");
@@ -68,45 +71,54 @@ int main () {
 }
 
 // 初始化，构造函数
-Person::Person () {
+Person::Person()
+{
     name = "heige";
     age = 12;
 }
 
-void Person::set_name (string n) {
+void Person::set_name(string n)
+{
     name = n;
 }
 
 // 当前的这个name只能返回，不能被修改
-string Person::get_name () const {
+string Person::get_name() const
+{
     return name;
 }
 
-void Person::output () {
+void Person::output()
+{
     cout << "call super output" << endl;
     cout << "name is: " << name << endl;
     cout << "age is: " << age << endl;
 }
 
-void Stu::set_number (const int &n) {
+void Stu::set_number(const int &n)
+{
     number = n;
 }
 
 // 构造函数定义
-Stu::Stu () {
+Stu::Stu()
+{
     number = 1;
     age = 12;
 }
 
-int Stu::get_age () {
+int Stu::get_age()
+{
     return age;
 }
 
-void Stu::output () {
+void Stu::output()
+{
     Person::output();
     cout << "stu object,current number: " << number << endl;
 }
 
-bool equal (Stu s1, Stu s2) {
+bool equal(Stu s1, Stu s2)
+{
     return s1.name == s2.name && s1.age == s2.age;
 }

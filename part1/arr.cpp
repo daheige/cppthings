@@ -9,7 +9,9 @@ int main()
     cout << "array size is " << a.size() << endl;
     cout << "first value is " << a[0] << endl;
 
+    // 动态数组vector
     vector<string> names = {"daheige", "golang", "c++"};
+    names.push_back("js");
     names.push_back("php");
     cout << "size is " << names.size() << endl; // 动态数组，在go中称作为slices
     cout << "first value is " << names[0] << endl;

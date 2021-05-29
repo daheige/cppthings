@@ -23,4 +23,3 @@
 
     汇总起来就是一个命令
     g++ -o helloworld hello.cpp
-

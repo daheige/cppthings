@@ -28,7 +28,7 @@ int main()
     q = nullptr; // 赋值给空指针常量
 
     int x = 8;
-    int *yPtr = &x; // &取地址操作，指针北非总是指向堆内存，可以指向一个堆栈中变量，甚至指针的指针
+    int *yPtr = &x; // &取地址操作，指针并非总是指向堆内存，可以指向一个堆栈中变量，甚至指针的指针
     cout << "*y value is " << *yPtr << endl;
 
     Emp *anEmp;

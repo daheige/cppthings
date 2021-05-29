@@ -76,6 +76,7 @@ int main()
 	str = "daheige";
 	cout << "str is " << str << endl;
 
+	// 定义数组格式array<type,n> arr={xxx}
 	array<int, 3> arr = {1, 2, 3};
 	for (int i = 0; i < arr.size(); i++)
 	{

@@ -12,7 +12,7 @@ int main()
     cout << "the price is $" << price << endl;
 
     double a = 12.3455;
-    cout.precision(3);
+    cout.precision(3); // 指定三位小数点
     cout << "a is $" << a << endl;
 
     // cin/cout 输入和输出操作

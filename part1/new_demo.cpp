@@ -4,7 +4,8 @@
 
 using namespace std;
 
-int main () {
+int main()
+{
     int *p = new int;
     //    // 释放堆上的内存
     //    delete p;
@@ -18,7 +19,6 @@ int main () {
     cout << "q = " << q << endl;
     cout << "p = " << p << endl;
 
-
     return 0;
 }
 
@@ -30,4 +30,3 @@ q = 1
 q = 12
 p = 0x7ffee9a9e42c
  */
-

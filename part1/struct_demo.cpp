@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+// 结构体定义
 struct Circle
 {
     int x, y;
@@ -32,7 +33,7 @@ int main()
 
     // 统一初始化动态分配数组
     int *pArr = new int[4]{10, 1, 2, 3};
-    cout << "p first value: " << pArr[0] << endl;
+    cout << "p first value: " << pArr[0] << endl; // 10
 
     return 0;
 }

@@ -7,8 +7,12 @@ using namespace std;
 class AirlineTicket
 {
 public: // 公共方法
+    // 定义构造函数
     AirlineTicket();
+
+    // 定义析构函数，在对象被销毁时候调用
     ~AirlineTicket();
+
     double calculatePriceInDollars() const;
     const std::string &getPassengerName() const;
     void setPassengerName(const std::string &name);
@@ -87,7 +91,8 @@ int main()
 
     cout << "this ticket will const $" << cost << endl;
 
-    // 通过智能指针的方式声明,不需要调用delete操作，清楚内存
+    // 通过智能指针的方式声明,不需要调用delete操作，清除内存
+    // auto类型推导
     auto myTicket2 = make_unique<AirlineTicket>();
     myTicket2->setPassengerName("mick");
     myTicket2->setNumberOfMiles(2000);
@@ -100,7 +105,7 @@ int main()
     myticket3->setPassengerName("maomao");
     myticket3->setNumberOfMiles(1000);
     cout << "this other ticket will cost $" << myticket3->calculatePriceInDollars() << endl;
-    delete myticket3; // 手动分配的指针，需要调用delete方法
+    delete myticket3; // 手动分配的指针，需要调用delete方法，然后将值赋值为nullptr空指针
     myticket3 = nullptr;
 
     return 0;

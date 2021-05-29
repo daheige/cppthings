@@ -3,6 +3,7 @@
 
 using namespace std;
 
+// 类的声明
 struct Date
 {
     int month;
@@ -31,7 +32,7 @@ private:
     int year; // 定义私有变量
 };
 
-// 定义类的方法
+// 定义类的方法 ::表示作用域
 void DayOfYear::output()
 {
     cout << "month = " << month

@@ -6,11 +6,15 @@ using namespace std;
 
 int main()
 {
+    // 输入流定义
     ifstream in_stream;
+
+    // 输出流定义
     ofstream out_stream;
 
     string in_name = "test.txt";
     string out_name = "out.txt";
+    // 打开文件
     in_stream.open(in_name);
     if (in_stream.fail())
     {
