@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-struct Point{
+class Point{
 // 公共方法
 public:
     Point(int x,int y):mX(x),mY(y){};
@@ -13,6 +13,7 @@ private:
     int mX,mY;
 };
 
+// 定义类的方法
 double Point::area () const {
     return mX * mY;
 }

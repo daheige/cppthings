@@ -17,7 +17,7 @@ void print(const std::string* str){
     std::cout << "str is "<< *str << std::endl;
 }
 
-// 3.其他用户，返回值修饰const
+// 3.其他用法，返回值修饰const
 const double get_val();
 const double get_val() {
     return 1.2;
