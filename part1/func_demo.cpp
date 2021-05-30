@@ -12,5 +12,7 @@ int main()
 // const引用传递参数
 void printStr(const std::string &myStr)
 {
+    std::cout << "function name: " << __FUNCTION__ << std::endl;
+    std::cout << "function name: " << __func__ << std::endl;
     std::cout << myStr << std::endl;
 }
