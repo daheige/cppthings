@@ -18,6 +18,16 @@ void print(const std::string* str){
 }
 
 // 3.其他用户，返回值修饰const
+const double get_val();
+const double get_val() {
+    return 1.2;
+}
+
+const string message = "hello,world";
+
+const string& foo(){
+    return message;
+}
 
 int main(){
     cout << "max is "<< MAX << endl;
@@ -25,6 +35,21 @@ int main(){
     string str = "hello,world";
     print(&str);
 
+    // 类型自动推导
+    // 1、auto类型自动推导，把结果存在变量中，auto去除了引用和const限定符，所以建立了副本
+    auto x = foo();
+    cout << "x = "<< x << endl;
+
+    const auto& f2 = foo(); // const引用
+    cout << "f2 = "<< f2 << endl;
+
+    // 2、decltype 类型自动推导
+    int m = 0;
+    decltype(m) y = 123;
+    cout << "y = " << y << endl;
+
+    decltype(foo()) f3 = foo();
+    cout << "f3 foo = "<< f3 << endl;
     return 0;
 }
 

@@ -2,6 +2,22 @@
 #include <iostream>
 using namespace std;
 
+struct Point{
+// 公共方法
+public:
+    Point(int x,int y):mX(x),mY(y){};
+    double area() const;
+
+// 一般定义类的变量为私有变量
+private:
+    int mX,mY;
+};
+
+double Point::area () const {
+    return mX * mY;
+}
+
+
 // 一般建议每个成员元素之前加上小字母m
 // 类的定义，class里面定义方法和成员元素
 class AirlineTicket
@@ -100,13 +116,20 @@ int main()
     double cost2 = myTicket2->calculatePriceInDollars();
     cout << "this other ticket will cost $" << cost2 << endl;
 
-    // 不实用智能指针，用new方式分配内存
+    // 不使用智能指针，用new方式分配内存
     AirlineTicket *myticket3 = new AirlineTicket;
     myticket3->setPassengerName("maomao");
     myticket3->setNumberOfMiles(1000);
     cout << "this other ticket will cost $" << myticket3->calculatePriceInDollars() << endl;
     delete myticket3; // 手动分配的指针，需要调用delete方法，然后将值赋值为nullptr空指针
     myticket3 = nullptr;
+
+    Point p = {1,2}; // 初始化{...}模式
+    double radius = p.area();
+    cout << "radius = "<< radius << endl;
+
+    Point p2{1,3};// 直接赋值，省略了=
+    cout << "area = "<< p2.area() << endl;
 
     return 0;
 }
