@@ -33,22 +33,22 @@ alias g17="g++ -std=c++17"
 g11 -o hello hello.cpp
 ```
 # c++编译运行步骤分解
-预处理：
+预处理阶段：
 ```shell
 g++ -o hello.ii -E hello.cpp
 ```
 
-编译：将预处理文件转化为汇编文件
+汇编文件生成：将预处理文件转化为汇编文件
 ```shell
 g++ -o hello.s -S hello.ii
 ```
 
-汇编：形成目标文件
+目标文件生成：将上一步的汇编文件形成目标文件
 ```shell
 g++ -o hello.o -c hello.s
 ```
 
-链接： 把函数库导入进来，生成可执行文件
+可执行文件生成： 链接，把函数库导入进来，生成可执行文件
 ```shell
 g++ -o helloworld hello.o
 ```
@@ -70,9 +70,9 @@ g++ -o helloworld hello.cpp
 
 # c++学习参考书籍
 - C++语言的设计和演化 （`学习c++之前，有必要看下c++是怎么设计出来的，这本书是c++之父写的，完整的剖析了c++发展历程和设计哲学，怎么做权衡和取舍的`）
-- C++ Primer plus第6版（中文版）（作为c++入门书籍，非常经典，新手看这本，就可以把c++语言基础入门了）
+- C++ Primer plus第6版 （中文版）（作为c++入门书籍，非常经典，新手看这本，就可以把c++语言基础入门了）https://github.com/ShujiaHuang/Cpp-Primer-Plus-6th
 - C++高级编程 (第4版) （要想成为一名专业的c++程序员，必须扎实理解c++语言的工作原理，以及c++高级特性）
-- C++并发编程实战（第2版）作为c++编程的一本好书，值得一看
+- C++并发编程实战（第2版）（作为c++并发编程的一本好书，值得一看）
 - Essential C++中文版 （侯捷 翻译的那本，告诉你如何写出高质量的c++代码）
-- modern-cpp-tutorial-zh-cn 现代 C++ 教程：高速上手 C++11/14/17/20 （告诉你如何写出现代化的c++代码）
+- modern-cpp-tutorial-zh-cn 现代 C++ 教程：高速上手 C++11/14/17/20 （告诉你如何写出现代化的c++代码）https://github.com/changkun/modern-cpp-tutorial
 - C++标准库 第2版 侯捷 翻译 (不熟悉c++标准库，任何人都称不上是高生产力的c++程序员。---Nicolai M. Josuttis（尼古拉·约祖蒂斯）)
