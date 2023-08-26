@@ -3,7 +3,10 @@ using namespace std;
 
 int main()
 {
-	cout << "testing 1,2,3\n";
+    // endl输出流函数，会重刷一次输出流并立即换行
+    cout << "hello,world" << endl;
+    // 字符串中的\n换行符，直接只用\n，而不需要使用endl
+    cout << "testing 1,2,3\n";
 	char letter;
 	cout << "enter a letter to end the program:\n";
 
@@ -12,3 +15,4 @@ int main()
 	cout << letter;
 	return 0;
 }
+
