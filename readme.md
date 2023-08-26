@@ -33,6 +33,7 @@ alias g17="g++ -std=c++17"
 g11 -o hello hello.cpp
 ```
 # c++编译运行步骤分解
+![](build.jpg)
 预处理阶段：
 ```shell
 g++ -o hello.ii -E hello.cpp
