@@ -14,7 +14,7 @@ C语言规定：无论什么平台都要保证long型占用字节数不小于int
 part3/climits.cpp
 ```cpp
 #include <iostream>
-#include <climits>
+#include <climits> // 头文件climits定义了符号常量来表示类型的限制
 using namespace std;
 
 int main()
@@ -58,3 +58,9 @@ long: 9223372036854775807
 long long: 9223372036854775807
 minimum int value = -2147483648
 bits per byte = 8
+
+# sizeof运算符
+sizeof运算符指出，在使用8位字节的系统中，int的长度为4个字
+节。可对类型名或变量名使用sizeof运算符。对类型名（如int）使用
+sizeof运算符时，应将名称放在括号中；但对变量名（如n_short）使用
+该运算符，括号是可选的。
