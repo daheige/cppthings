@@ -77,3 +77,9 @@ g++ -o helloworld hello.cpp
 - Essential C++中文版 （侯捷 翻译的那本，告诉你如何写出高质量的c++代码）
 - modern-cpp-tutorial-zh-cn 现代 C++ 教程：高速上手 C++11/14/17/20 （告诉你如何写出现代化的c++代码）https://github.com/changkun/modern-cpp-tutorial
 - C++标准库 第2版 侯捷 翻译 (不熟悉c++标准库，任何人都称不上是高生产力的c++程序员。---Nicolai M. Josuttis（尼古拉·约祖蒂斯）)
+
+# c++源码风格
+- 每条语句占一行。
+- 每个函数都有一个开始花括号和一个结束花括号，这两个花括号各占据一行。
+- 函数中的语句都相对于花括号进行缩进。
+- 与函数名称相关的圆括号周围没有空白。

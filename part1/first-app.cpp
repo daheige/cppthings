@@ -1,4 +1,5 @@
 #include <iostream>  // 标准输入/输出
+#include <cmath>     // 引入数学操作相关的包
 using namespace std; // cout放在std这个命名空间下面
 
 // 通常使用换行符\n，在其他情况下则使用控制符endl。
@@ -16,6 +17,9 @@ int main()
     int a = 1;
     a += 1;
     cout << "a = " << a << endl;
+
+    double x = sqrt(169); // 169开平方x=13
+    cout << "x = " << x << endl;
 
     return 0;
 }
