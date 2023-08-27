@@ -143,3 +143,118 @@ i have some delicious golang for you, daheige.
 // 使用R"+*(标识原始字符串的开头时，必须使用)+*"标识原始字符串的结尾
 cout << R"(abc \nhello)" << endl;
 ```
+
+# 指针变量
+```c++
+#include <iostream>
+using namespace std;
+
+// 指针
+// 指针是一个变量，其存储的是值的地址，而不是值本身
+// 获取变量的地址，只需要对变量应用地址运算符&，就可以获取变量的位置
+
+int main() {
+    int donuts = 6;
+    double cpus = 4.5;
+    cout << "donuts value = " << donuts << endl;
+    cout << "donuts address = " << &donuts << endl;
+    cout << "cpus value = " << cpus << endl;
+    // 取地址 cpus address = 0x7ff7b3be1fe0
+    // 显示地址时，该实现的cout使用十六进制表示法，因为这是常用于描述内存的表示法
+    cout << "cpus address = " << &cpus << endl;
+
+    int *p, *q;  // 声明指针变量 int类型的指针变量，变量p,q是一个指针变量
+    p = new int;  // new创建指定类型的一个新动态变量，返回指向新变量的指针，就是指向int类型变量的指针
+    *p = 12;      // *解引用
+
+    int d;
+    // 将d变量的地址赋值给p,p->&d，此时p和d变量的地址指向一个位置
+    // 通过&获取变量d的地址
+    p = &d;
+    // 当解引用实际上获得了d的值，这个时候改变为123，实际上d的值就变化为123
+    *p = 123;
+
+    cout << "d = " << d << endl;
+    cout << "p = " << p << endl;
+    cout << "*p = " << *p << endl;
+    int m = 10;
+    q = &m;   // 将变量m的地址赋值给指针变量q
+    *q = 20;  // 解引用，实际上给m赋值为20
+
+    cout << "q = " << q << endl;  // q是一个指针类型，值是一个指针
+    cout << "m = " << m << endl;
+
+    return 0;
+}
+
+/*% g11 point.cpp
+% ./a.out
+donuts value = 6
+donuts address = 0x7ff7b510efe8
+cpus value = 4.5
+cpus address = 0x7ff7b510efe0
+d = 123
+p = 0x7ff7b510efcc
+*p = 123
+q = 0x7ff7b510efc8
+m = 20
+*/
+
+```
+
+- 指针在声明必须指定指针指向的数据的类型
+- 在C++中，int* 是一种复合类型，是指向int的指针，可以用同样的句法来声明指向其他类型的指针
+```c++
+int jumbo = 23;
+// 下面的 *pe 类型是int,由于*运算符被用于指针，解引用，因此pe变量本身必须是指针
+// pe是指向jumbo变量的内存地址，pe是指针类型
+// 这里需要强调一点：int*是一种类型，指向int的指针
+// int*,int *在哪里添加空格对于编译器来说没有任何区别
+// 在c++中，建议使用int* pe，这样的方式，int* 是一个int类型的指针
+// 对每个指针变量名，都需要使用一个*
+// 下面的语句将pe（而不是*pe）的值设置为&jumbo 
+int* pe = &jumbo;
+cout << "jumbo = " << jumbo << endl;
+cout << "pe = " << pe << endl;
+```
+
+![](pointer.jpg)
+输出结果：
+```
+jumbo = 23
+pe = 0x7ff7bc702fc4
+```
+# 关于指针使用说明
+一定要在对指针应用解除引用运算符（*）之前，将指针初始化为一个确定的、适当的地址。这是关于使用指针的金科玉律。
+
+# new和delete
+```c++
+// 如何使用指针来管理运行阶段的内存空间分配
+// 使用new来分配内存
+// 告诉程序需要多少存储int的内存，也就是说根据类型来确定多少字节的内存
+// p是被声明为指向int的指针，*p是存储在x那里的值
+// 为一个数据对象获取并指定分配内存的格式：typename * pointer_name = new typename
+int* p = new int;  // 分配内存是程序运行时进行的，new分配的内存在堆heap上
+int x = 12;
+p = &x;
+*p = 13;  // 解引用赋值，这里会将x的值改成13
+
+// 使用delete释放内存
+// 在需要内存的时候，通过new来分配，在不需要内存后，将其归还使用delete处理
+// 使用delete时候，后面要加上指向内存块的指针（new分配的内存地址）
+// 只能用delete来释放使用new分配的内存。然而，对空指针使用delete是安全的。
+int* ps = new int;
+delete ps;
+```
+
+使用new和delete时，应遵守以下规则:
+- 不要使用delete来释放不是new分配的内存。
+- 不要使用delete释放同一个内存块两次。
+- 如果使用new []为数组分配内存，则应使用delete []来释放。
+- 如果使用new []为一个实体分配内存，则应使用delete（没有方括号）来释放。
+- 对空指针应用delete是安全的。
+
+为数组分配内存的通用格式：
+typename * pointer_name = new typename[num_size]
+
+即使是最好的程序员和软件公司，也可能导致内存泄漏。要避免内存泄漏，最好是养成这样一种习惯，即同时使用new和delete运算符，在自由存储空间上动态分配内存，随后便释放它。
