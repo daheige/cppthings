@@ -92,3 +92,15 @@ g++ -o helloworld hello.cpp
 - 以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用。
 - 以一个下划线开头的名称被保留给实现，用作全局标识符。
 - C++对于名称的长度没有限制，名称中所有的字符都有意义，但有些平台有长度限制。
+
+# c++代码格式化
+采用clang-format进行格式化
+macos 安装
+```shell
+brew install clang-format
+```
+配置 vim ~/.clang-format
+```
+BasedOnStyle: Google
+IndentWidth: 4
+```
