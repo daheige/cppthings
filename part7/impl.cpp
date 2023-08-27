@@ -3,9 +3,8 @@
 
 using namespace std;
 
-class Person
-{
-public:
+class Person {
+   public:
     Person();
 
     // void表示无结果返回
@@ -16,15 +15,14 @@ public:
 
     void output();
 
-private:
+   private:
     string name;
     int age;
 };
 
 // 类的继承
-class Stu : public Person
-{
-public:
+class Stu : public Person {
+   public:
     Stu();
 
     // 友元函数前面加一个friend进行修饰
@@ -40,14 +38,13 @@ public:
     void output();
 
     // 私有成员或方法定义
-private:
-    int number; // 新增了一个成员number
+   private:
+    int number;  // 新增了一个成员number
     int age;
     string name;
 };
 
-int main()
-{
+int main() {
     Person p;
     cout << p.get_name() << endl;
     p.set_name("heige313");
@@ -56,69 +53,50 @@ int main()
     Stu s;
     cout << "current name: " << s.get_name() << endl;
     cout << "age: " << s.get_age() << endl;
-    s.set_name("dahei"); // 这里其实调用的父类的方法set_name
+    s.set_name("dahei");  // 这里其实调用的父类的方法set_name
     s.set_number(123);
     s.output();
 
     Stu s1, s2;
     s1.set_name("heige");
     s2.set_name("heige");
-    cout << "s1 age is: " << s1.get_age()
-         << "s2 age is: " << s2.get_age() << endl;
+    cout << "s1 age is: " << s1.get_age() << "s2 age is: " << s2.get_age()
+         << endl;
     bool b = equal(s1, s2);
 
     cout << "b is: " << b << endl;
 }
 
 // 初始化，构造函数
-Person::Person()
-{
+Person::Person() {
     name = "heige";
     age = 12;
 }
 
-void Person::set_name(string n)
-{
-    name = n;
-}
+void Person::set_name(string n) { name = n; }
 
 // 当前的这个name只能返回，不能被修改
-string Person::get_name() const
-{
-    return name;
-}
+string Person::get_name() const { return name; }
 
-void Person::output()
-{
+void Person::output() {
     cout << "call super output" << endl;
     cout << "name is: " << name << endl;
     cout << "age is: " << age << endl;
 }
 
-void Stu::set_number(const int &n)
-{
-    number = n;
-}
+void Stu::set_number(const int &n) { number = n; }
 
 // 构造函数定义
-Stu::Stu()
-{
+Stu::Stu() {
     number = 1;
     age = 12;
 }
 
-int Stu::get_age()
-{
-    return age;
-}
+int Stu::get_age() { return age; }
 
-void Stu::output()
-{
+void Stu::output() {
     Person::output();
     cout << "stu object,current number: " << number << endl;
 }
 
-bool equal(Stu s1, Stu s2)
-{
-    return s1.name == s2.name && s1.age == s2.age;
-}
+bool equal(Stu s1, Stu s2) { return s1.name == s2.name && s1.age == s2.age; }
