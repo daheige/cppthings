@@ -42,6 +42,8 @@ int main() {
     // pe是指向jumbo变量的内存地址，pe是指针类型
     // 这里需要强调一点：int*是一种类型，指向int的指针
     // int*,int *在哪里添加空格对于编译器来说没有任何区别
+    // 对每个指针变量名，都需要使用一个*
+    // 下面的语句将pe（而不是*pe）的值设置为&jumbo
     int* pe = &jumbo;
     cout << "jumbo = " << jumbo << endl;
     cout << "pe = " << pe << endl;
